@@ -132,9 +132,9 @@ class MTVikiMatrixInstance extends InstanceBase {
 
 			this.socket.on('connect', () => {
 				this.log('info', 'Connected')
-				this.sendCommand('GetSW')      //poll current matrix status once upon connect
-				this.sendCommand('GetKeyLock') //poll current keylock status once upon connect
-				this.sendCommand('GetBeepEn')  //poll current beepEn status
+				this.sendCommand('r status!')      //poll current matrix status once upon connect
+				this.sendCommand('r lock!') //poll current keylock status once upon connect
+				this.sendCommand('r beep!')  //poll current beepEn status
 			})
 
 			let receiveBacklog = ''
@@ -178,15 +178,15 @@ class MTVikiMatrixInstance extends InstanceBase {
 				EDIDData x x x x
 				*/
 				switch (tokens[0]) {
-					case 'SWS':
+					case 'power': //'SWS'
 						for (let i = 1; i < tokens.length; i++) {
 							this.updateRoute(i, tokens[i])
 						}
 						break
-					case 'KeyLockStatus':
-						this.updateLock(tokens[1])
+					case 'panel': //'KeyLockStatus'
+						this.updateLock(tokens[3]) //was '1'
 						break
-					case 'BeepEn':
+					case 'beep': //'BeepEn'
 						this.updateBeepEn(tokens[1])
 						break
 				}
@@ -217,8 +217,8 @@ class MTVikiMatrixInstance extends InstanceBase {
 
 		if (this.config.polled_data) {
 			this.pollMixerTimer = setInterval(() => {
-				this.sendCommand('GetSW')
-				this.sendCommand('GetKeyLock')
+				this.sendCommand('r status!') //'GetSW'
+				this.sendCommand('r lock!') //'GetKeyLock'
 			}, this.config.poll_interval)
 		}
 	}
@@ -263,9 +263,9 @@ class MTVikiMatrixInstance extends InstanceBase {
 		if (!this.socket.isConnected) return
 
 		if (state == 0) {
-			this.beepEn = 0
+			this.beepEn = 'off' //was 0
 		} else if (state == 1) {
-			this.beepEn = 1
+			this.beepEn = 'on' //was 1
 		} else {
 			this.log('warn', 'updateBeepEn called with invalid state value')
 		}
@@ -275,9 +275,9 @@ class MTVikiMatrixInstance extends InstanceBase {
 		if (!this.socket.isConnected) return
 
 		if (state == 0) {
-			this.keylock = 0
+			this.keylock = 'off' //was 0
 		} else if (state == 1) {
-			this.keylock = 1
+			this.keylock = 'on' //was 1
 		} else {
 			this.log('warn', 'updateLock called with invalid state value')
 		}
