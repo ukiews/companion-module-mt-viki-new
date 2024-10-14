@@ -7,7 +7,7 @@ export function getConfigFields() {
 			id: 'info',
 			width: 12,
 			label: 'Information',
-			value: 'This module will connect to an MT-VIKI MT-HD0808 8x8 HDMI Matrix switch.',
+			value: 'This module will connect to the HDP_MXB44VW 4x4 HDMI Matrix switch.',
 		},
 		{
 			type: 'textinput',
@@ -24,19 +24,19 @@ export function getConfigFields() {
 			width: 6,
 			min: 1,
 			max: 65535,
-			default: 8080,
+			default: 23,
 		},
 		{
 			type: 'dropdown',
 			label: 'Matrix Size',
 			id: 'matrix_size',
-			default: '8x8',
+			default: '4x4',
 			choices: [
-				{ id: '2x2', label: '2x2' },
-				{ id: '4x2', label: '4x2' },
+				//{ id: '2x2', label: '2x2' },
+				//{ id: '4x2', label: '4x2' },
 				{ id: '4x4', label: '4x4' },
 				{ id: '8x8', label: '8x8' },
-				{ id: '16x16', label: '16x16' },
+				//{ id: '16x16', label: '16x16' },
 			],
 		},
 		{
