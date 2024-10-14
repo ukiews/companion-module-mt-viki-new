@@ -29,7 +29,7 @@ export function getActionDefinitions(self) {
 				},
 			],
 			callback: (action) => {
-				self.sendCommand(`SW ${self.selectedInput} ${action.options.output}`)
+				self.sendCommand(`s output ${action.options.output} in source ${self.selectedInput}!`)
 				self.updateRoute(action.options.output, self.selectedInput)
 
 				self.checkFeedbacks()
@@ -54,7 +54,7 @@ export function getActionDefinitions(self) {
 				},
 			],
 			callback: (action) => {
-				self.sendCommand(`SW ${action.options.input} ${action.options.output}`)
+				self.sendCommand(`s output ${action.options.output} in source ${action.options.input}!`)
 				self.updateRoute(action.options.output, action.options.input)
 
 				self.checkFeedbacks()
