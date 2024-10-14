@@ -1,15 +1,15 @@
 {
-	"id": "mt-viki-matrix",
-	"name": "mt-viki-matrix",
-	"shortname": "mt-viki-matrix",
-	"description": "Companion module for MT Viki HDMI matrix switches",
-	"version": "1.1.0",
+	"id": "HDP_MXB44VW",
+	"name": "HDP_MXB44VW-Matrix",
+	"shortname": "HDP_MXB44VW-matrix",
+	"description": "Companion module for the HDP_MXB44VW HDMI matrix",
+	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-mt-viki-matrix.git",
-	"bugs": "https://github.com/bitfocus/companion-module-mt-viki-matrix/issues",
+	"repository": "git+https://github.com/ukiews/companion-module-mt-viki-new.git",
+	"bugs": "https://github.com/ukiews/companion-module-mt-viki-new/issues",
 	"maintainers": [
 		{
-			"name": "Jens Frank",
+			"name": "ukie",
 			"email": "jf@mormo.org"
 		}
 	],
@@ -20,7 +20,7 @@
 		"apiVersion": "0.0.0",
 		"entrypoint": "../index.js"
 	},
-	"manufacturer": "MT VIKI",
-	"products": ["MT-HD0808 8x8 HDMI Matrix"],
+	"manufacturer": "NoHasselAV",
+	"products": ["HDP_MXB44VW 4x4 HDMI Matrix"],
 	"keywords": ["HDMI Matrix"]
 }
